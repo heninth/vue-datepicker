@@ -139,7 +139,10 @@ export default {
       return this.currentDate.getYearFormatted();
     },
     getYears () {
-      return this.currentDate.generateYearsRange(this.activeYear, this.visibleYearsNumber, this.maxDate, this.minDate);
+      if (this.visibleYearsNumber === -1) {
+        return this.currentDate.generateYearsRangeMinMax(this.minDate, this.maxDate);
+      }
+      return this.currentDate.generateYearsRange(this.activeYear, this.visibleYearsNumber);
     },
     getMonths () {
       return this.currentDate.getMonths();
