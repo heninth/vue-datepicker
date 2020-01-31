@@ -59,7 +59,9 @@ export default class PickerDate {
     return [...Array(end - start + 1).keys()].map(i => start + i);
   }
   generateYearsRangeMinMax (min, max) {
-    return [...Array(max - min + 1).keys()].map(i => min + i);
+    const start = dayjs.isDayjs(min) ? min : dayjs(min);
+    const end = dayjs.isDayjs(max) ? max : dayjs(max);
+    return [...Array(end.year() - start.year() + 1).keys()].map(i => start.year() + i);
   }
 }
 
