@@ -58,6 +58,9 @@ export default class PickerDate {
     const end = currentYear + range;
     return [...Array(end - start + 1).keys()].map(i => start + i);
   }
+  generateYearsRangeMinMax (min, max) {
+    return [...Array(max - min + 1).keys()].map(i => min + i);
+  }
 }
 
 // -----------------------------------------
